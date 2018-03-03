@@ -24,7 +24,7 @@ max_seats
 screen_size
 -----
 ManyTo1 -> belongs_to -> Complex
-
+ManyToMany -> showed_by -> Showing
 ----------
 *********************
 ----------
@@ -33,25 +33,18 @@ Movie
 title
 run_time
 rating
+director
+ dir_f_name
+ dir_l_name
+actors [list]
 synopsis
 supplier
 -----
-1To1 -> director -> People
-1ToMany -> actor -> People
 1To1 -> produced_by -> Company
 1To1 -> start_date -> Complex
 1To1 -> end_date -> Complex
-----------
-*********************
-----------
-People
------
-f_name
-l_name
------
-1To1 -> director -> Movie
-ManyTo1 -> actor -> Movie
-1To1 -> company_contact -> Company
+1To1 -> reviewed -> Customer
+1To1 -> showed_movie -> Showing
 ----------
 *********************
 ----------
@@ -66,8 +59,53 @@ address
  prov
  postal
 phone_num
+contact
+ contact_f_name
+ contact_l_name
 -----
 1To1 -> produced_by -> Movie
-1To1 -> company_contact -> People
 ----------
 *********************
+----------
+Customer
+-----
+acct_num
+password 
+name
+ f_name
+ l_name
+address
+ street_address
+  street_num
+  street_name
+ city
+ prov
+ postal
+phone_num
+email
+cc_num
+cc_exp
+-----
+1ToMany -> reserved_by -> Reservation
+1To1 -> reviewed -> Movie
+----------
+********************
+----------
+Reservation
+-----
+seats
+-----
+ManyTo1 -> reserved_by -> Customer
+1To1 -> reserved_for -> Showing
+----------
+********************
+----------
+Showing
+-----
+start_time
+total_seats_reserved
+-----
+ManyToMany -> showed_by -> Theater
+1To1 -> reserved_for -> Reservation
+1To1 -> showed_movie -> Movie
+----------
