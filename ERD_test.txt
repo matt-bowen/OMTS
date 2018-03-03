@@ -1,0 +1,26 @@
+----------
+Theater_Complex
+-----
+name
+address
+ street address
+  street_num
+  street_name
+ city
+ prov
+ postal
+phone_num
+-----
+1ToMany -> belongs_to -> Theater
+----------
+
+----------
+Theater
+-----
+th_num
+max_seats
+screen_size
+-----
+ManyTo1 -> belongs_to -> Theater_Complex
+----------
+
