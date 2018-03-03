@@ -1,9 +1,9 @@
 ----------
-Theater_Complex
+Complex
 -----
 name
 address
- street address
+ street_address
   street_num
   street_name
  city
@@ -12,8 +12,10 @@ address
 phone_num
 -----
 1ToMany -> belongs_to -> Theater
+1To1 -> start_date -> Movie
+1To1 -> end_date -> Movie
 ----------
-
+********************
 ----------
 Theater
 -----
@@ -21,6 +23,51 @@ th_num
 max_seats
 screen_size
 -----
-ManyTo1 -> belongs_to -> Theater_Complex
-----------
+ManyTo1 -> belongs_to -> Complex
 
+----------
+*********************
+----------
+Movie
+-----
+title
+run_time
+rating
+synopsis
+supplier
+-----
+1To1 -> director -> People
+1ToMany -> actor -> People
+1To1 -> produced_by -> Company
+1To1 -> start_date -> Complex
+1To1 -> end_date -> Complex
+----------
+*********************
+----------
+People
+-----
+f_name
+l_name
+-----
+1To1 -> director -> Movie
+ManyTo1 -> actor -> Movie
+1To1 -> company_contact -> Company
+----------
+*********************
+----------
+Company
+-----
+name
+address
+ street_address
+  street_num
+  street_name
+ city
+ prov
+ postal
+phone_num
+-----
+1To1 -> produced_by -> Movie
+1To1 -> company_contact -> People
+----------
+*********************
