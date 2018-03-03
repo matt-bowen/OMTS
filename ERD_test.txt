@@ -12,8 +12,8 @@ address
 phone_num
 -----
 1ToMany -> belongs_to -> Theater
-1To1 -> start_date -> Movie
-1To1 -> end_date -> Movie
+1To1 -> start_date -> Movie (total)
+1To1 -> end_date -> Movie (total)
 ----------
 ********************
 ----------
@@ -23,7 +23,7 @@ th_num
 max_seats
 screen_size
 -----
-ManyTo1 -> belongs_to -> Complex
+ManyTo1 -> belongs_to -> Complex (total)
 ManyToMany -> showed_by -> Showing
 ----------
 *********************
@@ -40,10 +40,10 @@ actors [list]
 synopsis
 supplier
 -----
-1To1 -> produced_by -> Company
-1To1 -> start_date -> Complex
-1To1 -> end_date -> Complex
-1To1 -> reviewed -> Customer
+ManyTo1 -> produced_by -> Company (total)
+1To1 -> start_date -> Complex (total)
+1To1 -> end_date -> Complex (total)
+1To1 -> reviewed -> Customer 
 1To1 -> showed_movie -> Showing
 ----------
 *********************
@@ -63,7 +63,7 @@ contact
  contact_f_name
  contact_l_name
 -----
-1To1 -> produced_by -> Movie
+1ToMany -> produced_by -> Movie
 ----------
 *********************
 ----------
@@ -95,17 +95,17 @@ Reservation
 -----
 seats
 -----
-ManyTo1 -> reserved_by -> Customer
-1To1 -> reserved_for -> Showing
+ManyTo1 -> reserved_by -> Customer (total)
+1To1 -> reserved_for -> Showing (total)
 ----------
 ********************
 ----------
 Showing
 -----
 start_time
-total_seats_reserved
+{total_seats_reserved}
 -----
-ManyToMany -> showed_by -> Theater
+ManyToMany -> showed_by -> Theater (total)
 1To1 -> reserved_for -> Reservation
-1To1 -> showed_movie -> Movie
+1To1 -> showed_movie -> Movie (total)
 ----------
