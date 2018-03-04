@@ -1,0 +1,19 @@
+complex(primary key: name, street_num, street_name, city, prov, postal, phone_num)
+
+theater(primary key: complex_name, primary key: th_num, max_seats, screen_size)
+
+start_dates(primary key: complex_name, primary key: movie_title, date)
+
+end_dates(primary key: complex_name, primary key: movie_title, date)
+
+company(primary key: name, street_num, street_name, city, prov, postal, phone_num, contact)
+
+movie(primary key: title, run_time, rating, director, actors, synopsis, supplier, producing_company)
+
+reviews(primary key: movie_title, primary key: cust_acct_num, review)
+
+customer(primary key: acct_num, password, f_name, l_name, street_num, street_name, city, prov, postal, phone_num, email, cc_num, cc_exp)
+
+reservation(primary key: cust_acct_num, primary key: seats, start_time, movie_title, th_num, complex)
+
+showing(primary key: start_time, primary_key: complex, primary key: th_num, primary key: movie_title, {total_seats_reserved})
