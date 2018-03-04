@@ -33,7 +33,7 @@ CREATE TABLE Company
 	phone_num	INTEGER,
 	contact		VARCHAR(30),
 	PRIMARY KEY(name)
-):
+);
 
 CREATE TABLE Movie
 (
@@ -99,7 +99,7 @@ CREATE TABLE Showing
 	start_time	INTEGER		NOT NULL,
 	complex		VARCHAR(15) 	NOT NULL,
 	th_num		INTEGER		NOT NULL,
-	movie_title	VARHCAR(30)	NOT NULL,
+	movie_title	VARCHAR(30)	NOT NULL,
 	total_seats_res	INTEGER		NOT NULL,
 	PRIMARY KEY(start_time),
 	FOREIGN KEY(complex) REFERENCES Complex(name),
