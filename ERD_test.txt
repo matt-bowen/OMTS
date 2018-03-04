@@ -96,7 +96,7 @@ Reservation
 seats
 -----
 ManyTo1 -> reserved_by -> Customer (total)
-1To1 -> reserved_for -> Showing (total)
+ManyTo1 -> reserved_for -> Showing (total)
 ----------
 ********************
 ----------
@@ -106,6 +106,6 @@ start_time
 {total_seats_reserved}
 -----
 ManyToMany -> showed_by -> Theater (total)
-1To1 -> reserved_for -> Reservation
+1ToMany -> reserved_for -> Reservation
 1To1 -> showed_movie -> Movie (total)
 ----------
