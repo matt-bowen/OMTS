@@ -91,11 +91,11 @@ cc_exp
 ----------
 ********************
 ----------
-Reservation
+Reservation (weak - strong set: Customer)
 -----
 seats
 -----
-ManyTo1 -> reserved_by -> Customer (total)
+ManyTo1 -> reserved_by -> Customer (total) (identifying relationship)
 ManyTo1 -> reserved_for -> Showing (total)
 ----------
 ********************
