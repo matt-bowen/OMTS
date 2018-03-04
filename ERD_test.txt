@@ -12,19 +12,19 @@ address
 phone_num
 -----
 1ToMany -> belongs_to -> Theater
-1To1 -> start_date -> Movie (total)
-1To1 -> end_date -> Movie (total)
+ManyToMany -> start_date -> Movie (total)
+ManyToMany -> end_date -> Movie (total)
 ----------
 ********************
 ----------
-Theater
+Theater (weak - strong set: Complex)
 -----
 th_num
 max_seats
 screen_size
 -----
-ManyTo1 -> belongs_to -> Complex (total)
-ManyToMany -> showed_by -> Showing
+ManyTo1 -> belongs_to -> Complex (total) (identifying)
+1ToMany -> showed_by -> Showing
 ----------
 *********************
 ----------
@@ -41,10 +41,10 @@ synopsis
 supplier
 -----
 ManyTo1 -> produced_by -> Company (total)
-1To1 -> start_date -> Complex (total)
-1To1 -> end_date -> Complex (total)
+ManyToMany -> start_date -> Complex (total)
+ManyToMany -> end_date -> Complex (total)
 1To1 -> reviewed -> Customer 
-1To1 -> showed_movie -> Showing
+1ToMany -> showed_movie -> Showing
 ----------
 *********************
 ----------
@@ -95,17 +95,17 @@ Reservation (weak - strong set: Customer)
 -----
 seats
 -----
-ManyTo1 -> reserved_by -> Customer (total) (identifying relationship)
+ManyTo1 -> reserved_by -> Customer (total) (identifying)
 ManyTo1 -> reserved_for -> Showing (total)
 ----------
 ********************
 ----------
-Showing
+Showing (weak - strong sets: Movie, Theater)
 -----
 start_time
 {total_seats_reserved}
 -----
-ManyToMany -> showed_by -> Theater (total)
+ManyTo1 -> showed_by -> Theater (total) (identifying)
 1ToMany -> reserved_for -> Reservation
-1To1 -> showed_movie -> Movie (total)
+ManyTo1 -> showed_movie -> Movie (total) (identifying)
 ----------
