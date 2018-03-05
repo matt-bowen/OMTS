@@ -1,1 +1,4 @@
-none
+#ignore .zip files
+*.zip
+#ignore libreoffice lock files
+*~lock*
