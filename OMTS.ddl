@@ -18,7 +18,7 @@ CREATE TABLE Theater
 	complex_name	VARCHAR(15)	NOT NULL,
 	max_seats	INTEGER		NOT NULL,
 	screen_size	VARCHAR(6),
-	PRIMARY KEY(th_num),
+	PRIMARY KEY(th_num, complex_name),
 	FOREIGN KEY(complex_name) REFERENCES Complex(name)
 );
 
@@ -54,6 +54,7 @@ CREATE TABLE Start_Dates
 	complex_name	VARCHAR(15)	NOT NULL,
 	movie_title	VARCHAR(30)	NOT NULL,
 	date		DATE		NOT NULL,
+	PRIMARY KEY(complex_name, movie_title),
 	FOREIGN KEY(complex_name) REFERENCES Complex(name),
 	FOREIGN KEY(movie_title) REFERENCES Movie(title)
 );
@@ -63,6 +64,7 @@ CREATE TABLE End_Dates
 	complex_name	VARCHAR(15)	NOT NULL,
 	movie_title	VARCHAR(30)	NOT NULL,
 	date		DATE		NOT NULL,
+	PRIMARY KEY(complex_name, movie_title),
 	FOREIGN KEY(complex_name) REFERENCES Complex(name),
 	FOREIGN KEY(movie_title) REFERENCES Movie(title)
 );
@@ -101,7 +103,7 @@ CREATE TABLE Showing
 	th_num		INTEGER		NOT NULL,
 	movie_title	VARCHAR(30)	NOT NULL,
 	total_seats_res	INTEGER		NOT NULL,
-	PRIMARY KEY(start_time),
+	PRIMARY KEY(start_time, complex, th_num, movie_title),
 	FOREIGN KEY(complex) REFERENCES Complex(name),
 	FOREIGN KEY(th_num) REFERENCES Theater(th_num),
 	FOREIGN KEY(movie_title) REFERENCES Movie(title)
@@ -115,7 +117,7 @@ CREATE TABLE Reservation
 	movie_title	VARCHAR(30)	NOT NULL,
 	th_num		INTEGER		NOT NULL,
 	complex		VARCHAR(15)	NOT NULL,
-	PRIMARY KEY(seats),
+	PRIMARY KEY(cust_num, seats, movie_title),
 	FOREIGN KEY(cust_num) REFERENCES Customer(acct_num),
 	FOREIGN KEY(start_time) REFERENCES Showing(start_time),
 	FOREIGN KEY(movie_title) REFERENCES Movie(title),
