@@ -123,7 +123,60 @@ CREATE TABLE Reservation
 	FOREIGN KEY(complex) REFERENCES Complex(name)
 );
 
+INSERT INTO Complex VALUES
+("Odeon", 626, "Gardiners Rd.", "Kingston", "Ontario", "K7K1R6", 6136340152),
+("Screening Room", 120, "Princess St.", "Kingston", "Ontario", "K7K1R6", 6135426080),
+("Landmark", 120, "Dalton Ave.", "Kingston", "Ontario", "K7K1R6", 6135477887)
+;
 
+INSERT INTO Theater VALUES
+(1, "Odeon", 50, "Small"),
+(2, "Odeon", 70, "Medium"),
+(3, "Odeon", 90, "Large"),
+(1, "Screening Room", 20, "Small"),
+(2, "Screening Room", 50, "Large"),
+(1, "Landmark", 50, "Small"),
+(2, "Landmark", 50, "Small"),
+(3, "Landmark", 100, "Large"),
+(4, "Landmark", 100, "Large")
+;
+
+INSERT INTO Company VALUES
+("Warner Bros", 1, "Hollywood Ave.", "Kingston", "Ontario", "K7K1R6", 1234567890, "Mr. Contact"),
+("Marvel Studios", NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+;
+
+INSERT INTO Movie VALUES
+("Black Panther", 120, "PG13", "Ryan Coogler", "Chadwick Boseman, Michael B. Jordan, Lupita Nyong'o, Letitia Wright", "Masked hero saves the day", "Disney Studios", "Marvel Studios")
+;
+
+INSERT INTO Start_Dates VALUES
+("Odeon", "Black Panther", "2018-02-14"),
+("Screening Room", "Black Panther", "2018-02-21")
+;
+
+INSERT INTO End_Dates VALUES
+("Odeon", "Black Panther", "2018-04-14"),
+("Screening Room", "Black Panther", "2018-04-01")
+;
+
+INSERT INTO Customer VALUES
+(1, "admin", "ad", "min", NULL, NULL, NULL, NULL, NULL, 0987654321, "admin@omts.com", 0, "2020-01-01")
+;
+
+INSERT INTO Reviews VALUES
+("Black Panther", 1, "10/10 would watch again")
+;
+
+INSERT INTO Showing VALUES
+(2100, "Odeon", 1, "Black Panther", 0),
+(2000, "Screening Room", 2, "Black Panther", 3)
+;
+
+INSERT INTO Reservation VALUES
+(1, 0, 2100, "Black Panther", 1, "Odeon"),
+(1, 3, 2000, "Black Panther", 2, "Screening Room")
+;
 
 
 
