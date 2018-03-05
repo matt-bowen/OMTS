@@ -1,0 +1,17 @@
+1. every theater complex has at least one theater and that that theater has a number
+2. every theater belongs to a complex
+3. every movie has a unique start date and a unique end date with every complex it is shown at
+4. multiple movies can be shown at a single complex and multiple complexes can show a movie
+5. the leading actors in a movie are stored in a single string (as opposed to a separate entity)
+6. the supplier of a movie is a single string (a name)
+7. a customer's password and credit card info can be saved in the same relation as the rest of that customer's data (may need to edit this for security purposes later)
+8. a customer can write multiple reviews, and multiple customers can write a review for a single movie
+9. reviews are optional
+10. a reservation is unique to a customer
+11. a showing is unique to the movie, complex, theater, and start time (ie, a single complex could show the same movie, in the same theater, at different  times and those showings would be unique)
+12. the total seats reserved is a derived attribute from the total reservations made - the assumption here is that this math can be done
+13. it is possible to chain weak entity sets such that the final entity set inherits the primary key of the weak entities preceding it in the chain towards the strong entity set (Showing -> Theater -> Complex)
+14. a company can produce multiple movies, but a movie only has one producing company
+15. a reservation is only for a single showing, but a showing may have multiple (or none) reservations
+16. the fields of running time, any phone number, and customer account numbers are all stored as integers
+17. numerous assumptions about the length of string fields, for example, movie title: 30 chars, complex name: 15 chars, etc
