@@ -15,3 +15,5 @@
 15. a reservation is only for a single showing, but a showing may have multiple (or none) reservations
 16. the fields of running time, any phone number, and customer account numbers are all stored as integers
 17. numerous assumptions about the length of string fields, for example, movie title: 30 chars, complex name: 15 chars, etc
+18. Every complex's name is unique
+19. People can only buy tickets online (total tickets reserved reflects only online tickets)
