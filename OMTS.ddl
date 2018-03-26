@@ -92,6 +92,7 @@ CREATE TABLE Reviews
 	movie_title	VARCHAR(30)	NOT NULL,
 	cust_num	INTEGER		NOT NULL,
 	review		VARCHAR(300)	NOT NULL,
+	PRIMARY KEY(movie_title, cust_num),
 	FOREIGN KEY(movie_title) REFERENCES Movie(title),
 	FOREIGN KEY(cust_num) REFERENCES Customer(acct_num)
 );
@@ -163,11 +164,11 @@ INSERT INTO End_Dates VALUES
 ;
 
 INSERT INTO Customer VALUES
-(1, "admin", "ad", "min", NULL, NULL, NULL, NULL, NULL, 0987654321, "admin@omts.com", 0, "2020-01-01")
+(1001, "admin", "ad", "min", NULL, NULL, NULL, NULL, NULL, 0987654321, "admin@omts.com", 0, "2020-01-01")
 ;
 
 INSERT INTO Reviews VALUES
-("Black Panther", 1, "10/10 would watch again")
+("Black Panther", 1001, "10/10 would watch again")
 ;
 
 INSERT INTO Showing VALUES
@@ -176,8 +177,8 @@ INSERT INTO Showing VALUES
 ;
 
 INSERT INTO Reservation VALUES
-(1, 0, 2100, "Black Panther", 1, "Odeon"),
-(1, 3, 2000, "Black Panther", 2, "Screening Room")
+(1001, 0, 2100, "Black Panther", 1, "Odeon"),
+(1001, 3, 2000, "Black Panther", 2, "Screening Room")
 ;
 
 
