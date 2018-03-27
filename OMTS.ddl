@@ -92,6 +92,7 @@ CREATE TABLE Reviews
 	movie_title	VARCHAR(30)	NOT NULL,
 	cust_num	INTEGER		NOT NULL,
 	review		VARCHAR(300)	NOT NULL,
+	review		VARCHAR(300)	NOT NULL, 
 	PRIMARY KEY(movie_title, cust_num),
 	FOREIGN KEY(movie_title) REFERENCES Movie(title),
 	FOREIGN KEY(cust_num) REFERENCES Customer(acct_num)
@@ -178,6 +179,7 @@ INSERT INTO Showing VALUES
 
 INSERT INTO Reservation VALUES
 (1001, 1, 2100, "Black Panther", 1, "Odeon"),
+(1001, 0, 2100, "Black Panther", 1, "Odeon"),
 (1001, 3, 2000, "Black Panther", 2, "Screening Room")
 ;
 
