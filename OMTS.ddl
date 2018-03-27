@@ -92,7 +92,6 @@ CREATE TABLE Reviews
 	movie_title	VARCHAR(30)	NOT NULL,
 	cust_num	INTEGER		NOT NULL,
 	review		VARCHAR(300)	NOT NULL,
-	review		VARCHAR(300)	NOT NULL, 
 	PRIMARY KEY(movie_title, cust_num),
 	FOREIGN KEY(movie_title) REFERENCES Movie(title),
 	FOREIGN KEY(cust_num) REFERENCES Customer(acct_num)
