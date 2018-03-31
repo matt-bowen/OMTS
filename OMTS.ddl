@@ -114,7 +114,7 @@ CREATE TABLE Reservation
 (
 	cust_num	INTEGER		NOT NULL,
 	seats		INTEGER		NOT NULL,
-	start_time	INTEGER		NOT NULL,
+	start_time	TIME		NOT NULL,
 	movie_title	VARCHAR(30)	NOT NULL,
 	th_num		INTEGER		NOT NULL,
 	complex		VARCHAR(15)	NOT NULL,
