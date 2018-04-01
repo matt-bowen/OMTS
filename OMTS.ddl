@@ -101,7 +101,7 @@ CREATE TABLE Reviews
 
 CREATE TABLE Showing
 (
-	start_time	INTEGER		NOT NULL,
+	start_time	TIME		NOT NULL,
 	complex		VARCHAR(15) 	NOT NULL,
 	th_num		INTEGER		NOT NULL,
 	movie_title	VARCHAR(30)	NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE Reservation
 
 INSERT INTO Complex VALUES
 ("Odeon", 626, "Gardiners Rd.", "Kingston", "Ontario", "K7K1R6", 6136340152),
-("ScreeningRoom", 120, "Princess St.", "Kingston", "Ontario", "K7K1R6", 6135426080),
+("Screening Room", 120, "Princess St.", "Kingston", "Ontario", "K7K1R6", 6135426080),
 ("Landmark", 120, "Dalton Ave.", "Kingston", "Ontario", "K7K1R6", 6135477887)
 ;
 
@@ -138,8 +138,8 @@ INSERT INTO Theater VALUES
 (1, "Odeon", 50, "Small"),
 (2, "Odeon", 70, "Medium"),
 (3, "Odeon", 90, "Large"),
-(1, "ScreeningRoom", 20, "Small"),
-(2, "ScreeningRoom", 50, "Large"),
+(1, "Screening Room", 20, "Small"),
+(2, "Screening Room", 50, "Large"),
 (1, "Landmark", 50, "Small"),
 (2, "Landmark", 50, "Small"),
 (3, "Landmark", 100, "Large"),
@@ -159,14 +159,14 @@ INSERT INTO Movie VALUES
 
 INSERT INTO Start_Dates VALUES
 ("Odeon", "Black Panther", "2018-02-14"),
-("ScreeningRoom", "Black Panther", "2018-02-21"),
-("ScreeningRoom", "Isle of Dogs", "2018-04-28")
+("Screening Room", "Black Panther", "2018-02-21"),
+("Screening Room", "Isle of Dogs", "2018-04-28")
 ;
 
 INSERT INTO End_Dates VALUES
 ("Odeon", "Black Panther", "2018-04-14"),
-("ScreeningRoom", "Black Panther", "2018-04-01"),
-("ScreeningRoom", "Isle of Dogs", "2018-06-10")
+("Screening Room", "Black Panther", "2018-04-01"),
+("Screening Room", "Isle of Dogs", "2018-06-10")
 ;
 
 INSERT INTO Customer VALUES
@@ -179,14 +179,16 @@ INSERT INTO Reviews VALUES
 ;
 
 INSERT INTO Showing VALUES
-(2100, "Odeon", 1, "Black Panther", 0),
-(2000, "ScreeningRoom", 2, "Black Panther", 3)
+("9:00", "Odeon", 1, "Black Panther", 0),
+("8:00", "Screening Room", 2, "Black Panther", 3),
+("8:30", "Screening Room", 1, "Isle of Dogs", 0),
+("10:00", "Screening Room", 1, "Isle of Dogs", 0)
 ;
 
 INSERT INTO Reservation VALUES
-(1001, 1, 2100, "Black Panther", 1, "Odeon"),
-(1001, 0, 2100, "Black Panther", 1, "Odeon"),
-(1001, 3, 2000, "Black Panther", 2, "ScreeningRoom")
+(1001, 1, "9:00", "Black Panther", 1, "Odeon"),
+(1001, 0, "9:00", "Black Panther", 1, "Odeon"),
+(1001, 3, "8:00", "Black Panther", 2, "Screening Room")
 ;
 
 
