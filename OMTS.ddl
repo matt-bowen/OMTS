@@ -94,7 +94,7 @@ CREATE TABLE Reviews
 	movie_title	VARCHAR(30)	NOT NULL,
 	cust_num	INTEGER		NOT NULL,
 	review		VARCHAR(300)	NOT NULL,
-	PRIMARY KEY(movie_title, cust_num),
+	PRIMARY KEY(movie_title, cust_num, review),
 	FOREIGN KEY(movie_title) REFERENCES Movie(title),
 	FOREIGN KEY(cust_num) REFERENCES Customer(acct_num)
 );
@@ -149,24 +149,38 @@ INSERT INTO Theater VALUES
 INSERT INTO Company VALUES
 ("Warner Bros", 1, "Hollywood Ave.", "Kingston", "Ontario", "K7K1R6", 1234567890, "Mr. Contact"),
 ("Marvel Studios", NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-("Indian Paintbrush", NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+("Indian Paintbrush", NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+("TSG Entertainment", NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+("Blumhouse Productions", NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+("Syncopy Inc", NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 ;
 
 INSERT INTO Movie VALUES
 ("Black Panther", 120, "PG13", "Ryan Coogler", "Chadwick Boseman, Michael B. Jordan, Lupita Nyong'o, Letitia Wright", "Masked hero saves the day", "Disney Studios", "Marvel Studios"),
-("Isle of Dogs", 101, "PG", "Wes Anderson", "Bryan Cranston, Edward Norton, Bill Murray, Jeff Goldblum", "Dogs save child", "Fox Searchlight", "Indian Paintbrush")
+("Isle of Dogs", 101, "PG", "Wes Anderson", "Bryan Cranston, Edward Norton, Bill Murray, Jeff Goldblum", "Dogs save child", "Fox Searchlight", "Indian Paintbrush"),
+("Shape of Water", 123, "PG13", "Guillermo del Toro", "Sally Hawkins, Michael Shannon, Octavia Spencer, Richard Jenkins", "Deaf woman finds love in an unlikely place", "Fox Searchlight", "TSG Entertainment"),
+("Get Out", 103, "R", "Jordan Peele", "Daniel Kaluuya, Allison Williams, Bradley Whitford", "Man finds himself in a sticky situation with his girlfriend's parents", "Universal Pictures", "Blumhouse Productions"),
+("Dunkirk", 106, "R", "Christopher Nolan", "Fionn Whitehead, Tom Hardy, Cillian Murphy, Kenneth Branagh, Harry Styles", "The battle of dunkirk", "Warner Bros", "Syncopy Inc")
 ;
 
 INSERT INTO Start_Dates VALUES
 ("Odeon", "Black Panther", "2018-02-14"),
+("Odeon", "Dunkirk", "2018-01-01"),
+("Landmark", "Black Panther", "2018-02-20"),
+("Landmark", "Get Out", "2018-02-14"),
 ("Screening Room", "Black Panther", "2018-02-21"),
-("Screening Room", "Isle of Dogs", "2018-04-28")
+("Screening Room", "Isle of Dogs", "2018-04-28"),
+("Screening Room", "Shape of Water", "2018-01-15")
 ;
 
 INSERT INTO End_Dates VALUES
 ("Odeon", "Black Panther", "2018-04-14"),
+("Odeon", "Dunkirk", "2018-04-01"),
+("Landmark", "Black Panther", "2018-05-01"),
+("Landmark", "Get Out", "2018-04-01"),
 ("Screening Room", "Black Panther", "2018-04-01"),
-("Screening Room", "Isle of Dogs", "2018-06-10")
+("Screening Room", "Isle of Dogs", "2018-06-10"),
+("Screening Room", "Shape of Water", "2018-04-15")
 ;
 
 INSERT INTO Customer VALUES
@@ -180,16 +194,16 @@ INSERT INTO Reviews VALUES
 
 INSERT INTO Showing VALUES
 ("9:00", "Odeon", 1, "Black Panther", 0),
-("8:00", "Screening Room", 2, "Black Panther", 3),
+("7:30", "Odeon", 2, "Dunkirk", 0),
+("10:00", "Odeon", 2, "Dunkirk", 0),
+("7:30", "Landmark", 1, "Black Panther", 0),
+("10:00", "Landmark", 2, "Get Out", 0),
+("8:00", "Screening Room", 2, "Black Panther", 0),
 ("8:30", "Screening Room", 1, "Isle of Dogs", 0),
-("10:00", "Screening Room", 1, "Isle of Dogs", 0)
+("10:00", "Screening Room", 1, "Isle of Dogs", 0),
+("10:30", "Screening Room", 2, "Shape of Water", 0)
 ;
 
-INSERT INTO Reservation VALUES
-(1001, 1, "9:00", "Black Panther", 1, "Odeon"),
-(1001, 0, "9:00", "Black Panther", 1, "Odeon"),
-(1001, 3, "8:00", "Black Panther", 2, "Screening Room")
-;
 
 
 
